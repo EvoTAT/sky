@@ -6,3 +6,16 @@ sky:
     database: sky_take_out
     username: root
     password: Zhoujie123
+
+  alioss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: LTAI5t8KuWeLmPNjv6JVDmLx
+    access-key-secret: HR0kH8pSlKAv4lGt6WKuM3vYYpW6h3
+    bucket-name: evosky
+
+#alioss:
+#  endpoint: oss-cn-hangzhou.aliyuncs.com
+#  access-key-id: LTAI5t8KuWeLmPNjv6JVDmLx
+#  access-key-secret: HR0kH8pSlKAv4lGt6WKuM3vYYpW6h3
+#  bucket-name: evotails
+#
