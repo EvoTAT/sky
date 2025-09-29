@@ -42,3 +42,7 @@ sky:
     access-key-id: ${sky.alioss.access-key-id}
     access-key-secret: ${sky.alioss.access-key-secret}
     bucket-name: ${sky.alioss.bucket-name}
+  alibaba:
+    cloud:
+      access-key: ${LTAI5t8KuWeLmPNjv6JVDmLx}
+      secret-key: ${HR0kH8pSlKAv4lGt6WKuM3vYYpW6h3}
