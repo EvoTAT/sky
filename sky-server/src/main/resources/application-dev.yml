@@ -12,6 +12,10 @@ sky:
     access-key-id: LTAI5t8KuWeLmPNjv6JVDmLx
     access-key-secret: HR0kH8pSlKAv4lGt6WKuM3vYYpW6h3
     bucket-name: evosky
+  alibaba:
+    cloud:
+      access-key: ${LTAI5t8KuWeLmPNjv6JVDmLx}
+      secret-key: ${HR0kH8pSlKAv4lGt6WKuM3vYYpW6h3}
 
 #alioss:
 #  endpoint: oss-cn-hangzhou.aliyuncs.com
