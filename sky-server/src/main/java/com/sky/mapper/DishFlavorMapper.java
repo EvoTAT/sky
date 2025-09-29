@@ -11,6 +11,9 @@ import java.util.List;
 public interface DishFlavorMapper {
     void insertBatch(List<DishFlavor> flavors);
 
-    @Delete("delete from dish_flavor where dish_id = #{id}")
-    void deleteByDishId(Long id);
+/**
+ * 批量删除
+ * @param ids
+ */
+    void deleteByDishId(List<Long> ids);
 }

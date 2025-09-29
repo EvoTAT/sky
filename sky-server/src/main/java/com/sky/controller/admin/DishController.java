@@ -22,7 +22,7 @@ public class DishController {
     @Autowired
     private DishService dishService;
 
-
+//新增菜品
     /**
      * 新增菜品
      *
@@ -42,7 +42,7 @@ public class DishController {
             return Result.error("保存菜品失败");
         }
     }
-
+// 菜品分页查询
     @GetMapping("/{page}")
     @ApiOperation("菜品分页查询")
     public Result<PageResult> page(DishPageQueryDTO dishPageQueryDTO) {
@@ -50,12 +50,20 @@ public class DishController {
         PageResult pageResult = dishService.pageQuery(dishPageQueryDTO);
         return Result.success(pageResult);
     }
-
+// 删除菜品
     @DeleteMapping
     @ApiOperation("删除菜品")
     public Result delete(@RequestParam List<Long> ids) {
         log.info("删除菜品：{}", ids);
         dishService.delete(ids);
+        return Result.success();
+    }
+
+    @PostMapping("/status/{status}")
+    @ApiOperation("启用禁用菜品")
+    public Result setStatus(@PathVariable Integer status, @RequestParam Long id) {
+        log.info("设置菜品状态：status={}, id={}", status, id);
+        dishService.startOrStop(status, id);
         return Result.success();
     }
 
