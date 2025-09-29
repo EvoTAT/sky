@@ -80,7 +80,7 @@ public class DishServiceImpl implements DishService {
      *
      * @param ids
      */
-    @Override
+    @Transactional
     public void delete(List<Long> ids) {
         // 1. 判断当前菜品是否在售，如果正在售，则不能删除
         for (Long id : ids) {
