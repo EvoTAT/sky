@@ -16,6 +16,10 @@ sky:
     cloud:
       access-key: ${LTAI5t8KuWeLmPNjv6JVDmLx}
       secret-key: ${HR0kH8pSlKAv4lGt6WKuM3vYYpW6h3}
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
 
 #alioss:
 #  endpoint: oss-cn-hangzhou.aliyuncs.com
