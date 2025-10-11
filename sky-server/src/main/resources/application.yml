@@ -41,6 +41,10 @@ sky:
     admin-ttl: 7200000000000000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+    # 设置用户jwt签名加密时使用的秘钥
+    user-secret-key: evosky
+    user-ttl: 7200000000000000
+    user-token-name: authentication
   alioss:
     endpoint: ${sky.alioss.endpoint}
     access-key-id: ${sky.alioss.access-key-id}
@@ -50,3 +54,6 @@ sky:
     cloud:
       access-key: ${sky.alibaba.cloud.access-key}
       secret-key: ${sky.alibaba.cloud.secret-key}
+  wechat:
+    appid: ${sky.wechat.appid}
+    secret: ${sky.wechat.secret}

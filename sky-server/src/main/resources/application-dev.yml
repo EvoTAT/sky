@@ -20,6 +20,9 @@ sky:
     host: localhost
     port: 6379
     database: 0
+  wechat:
+    appid: wxa7607a1c4ead57a2
+    secret: 9ee0f0842172eedf114c984c2664b1f8
 
 #alioss:
 #  endpoint: oss-cn-hangzhou.aliyuncs.com

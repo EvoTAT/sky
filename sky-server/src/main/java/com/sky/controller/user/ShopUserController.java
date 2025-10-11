@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user/shop")
 @Slf4j
 @Api(tags = "店铺相关接口")
-public class userController {
+public class ShopUserController {
     @Autowired
     private RedisTemplate redisTemplate;
 
