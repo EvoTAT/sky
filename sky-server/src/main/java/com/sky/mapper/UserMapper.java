@@ -5,6 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.time.LocalDate;
+import java.util.Map;
+
 @Mapper
 public interface UserMapper {
 
@@ -18,4 +21,13 @@ public interface UserMapper {
 
 
     void insert(User user);
+
+    @Select("select * from user where id=#{userId}")
+    User getById(Long userId);
+
+    Integer countByDate(LocalDate date);
+
+    Integer countTotalByDate(LocalDate date);
+
+    Integer countByMap(Map map);
 }

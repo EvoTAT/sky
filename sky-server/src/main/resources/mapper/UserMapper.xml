@@ -6,4 +6,14 @@
         insert into user (openid, name, phone, sex, id_number, avatar, create_time)
         values (#{openid}, #{name}, #{phone}, #{sex}, #{idNumber}, #{avatar}, #{createTime})
     </insert>
+    <select id="countByDate" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM user WHERE DATE(create_time) = #{date}
+    </select>
+
+    <select id="countTotalByDate" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM user WHERE DATE(create_time) &lt;= #{date}
+    </select>
+    <select id="countByMap" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM user
+    </select>
 </mapper>

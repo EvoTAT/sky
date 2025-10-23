@@ -57,3 +57,7 @@ sky:
   wechat:
     appid: ${sky.wechat.appid}
     secret: ${sky.wechat.secret}
+  shop:
+    address: 云南省昆明市西山区1101号
+  baidu :
+      ak: dwy5eKPoizPB1Ihl8C2lZG36gFCUmHEs

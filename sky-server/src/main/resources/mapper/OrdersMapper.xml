@@ -7,4 +7,81 @@
         insert into orders (id, number, status, user_id, address_book_id, order_time, checkout_time, pay_method, pay_status, amount, remark)
         values (#{id}, #{number}, #{status}, #{userId}, #{addressBookId}, #{orderTime}, #{checkoutTime}, #{payMethod}, #{payStatus}, #{amount}, #{remark})
     </insert>
+    <update id="update">
+        update orders
+        <set>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="payStatus != null">
+                pay_status = #{payStatus},
+            </if>
+            <if test="checkoutTime != null">
+                checkout_time = #{checkoutTime},
+            </if>
+            <if test="payMethod != null">
+                pay_method = #{payMethod},
+            </if>
+            <if test="amount != null">
+                amount = #{amount},
+            </if>
+        </set>
+    </update>
+    <select id="pageQuery" resultType="com.sky.entity.Orders">
+        select * from orders
+        <where>
+            <if test="number != null and number!=''">
+                and number like concat('%',#{number},'%')
+            </if>
+            <if test="phone != null and phone!=''">
+                and phone like concat('%',#{phone},'%')
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="beginTime != null">
+                and order_time &gt;= #{beginTime}
+            </if>
+            <if test="endTime != null">
+                and order_time &lt;= #{endTime}
+            </if>
+        </where>
+        order by order_time desc
+    </select>
+    <select id="sumByDateAndStatus" resultType="java.lang.Double">
+        SELECT SUM(amount) FROM orders
+        WHERE DATE(order_time) = #{date}
+          AND status = 5
+    </select>
+    <select id="countByDate" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM orders WHERE DATE(order_time) = #{date}
+    </select>
+
+    <select id="countValidByDate" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM orders WHERE DATE(order_time) = #{date} AND status = 5
+    </select>
+    <select id="getSalesTop10" resultType="com.sky.dto.GoodsSalesDTO">
+        SELECT
+        od.name AS name,
+        SUM(od.number) AS number
+        FROM order_detail od
+        JOIN orders o ON od.order_id = o.id
+        WHERE o.status = 5 /* 已完成的订单 */
+        AND o.order_time >= #{begin}
+        AND o.order_time &lt;= #{end}
+        GROUP BY od.name
+        ORDER BY number DESC
+        LIMIT 10
+    </select>
+    <select id="countByMap" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM orders
+    </select>
+    <select id="sumByMap" resultType="java.lang.Double">
+        SELECT SUM(amount) FROM orders
+    </select>
+
+
 </mapper>
